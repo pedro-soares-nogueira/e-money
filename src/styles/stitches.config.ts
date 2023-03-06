@@ -17,6 +17,7 @@ export const {
       blue300: '#A1CDFF',
 
       green: '#00C67E',
+      greenText: '#00db00',
       red: '#E75555',
 
       dark900: '#232323',
