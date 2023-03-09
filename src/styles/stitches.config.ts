@@ -1,4 +1,4 @@
-import { createStitches } from '@stitches/react'
+import { createStitches } from '@stitches/react';
 
 export const {
   config,
@@ -21,7 +21,13 @@ export const {
       red: '#E75555',
 
       dark900: '#232323',
-      dark600: '#5E5E5E',
+      dark600: '#373737',
+      dark400: '#4E4E4E',
+      dark200: '#6C6C6C',
+
+      pink: '#FC5FFF',
+      purple: '#A55FFF',
+      blue: '#5FBCFF',
     },
 
     fontSizes: {
@@ -38,4 +44,4 @@ export const {
       lg: '(min-width: 1024px)',
     },
   },
-})
+});
