@@ -4,7 +4,7 @@ export const SummaryContainer = styled('section', {
   width: '100%',
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
-  gap: '1rem',
+  gap: '2rem',
 });
 
 export const SummaryCard = styled('section', {
@@ -17,6 +17,8 @@ export const SummaryCard = styled('section', {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
+    fontSize: '1.2rem',
+    fontWeight: '600',
   },
 
   strong: {

@@ -53,7 +53,7 @@ const DefaultLayout = ({ children }: DefaultLayout) => {
             <SketchLogo size={32} />
           </Button>
         </SideBar>
-        <Content>{children}</Content>
+        <Content css={{}}>{children}</Content>
       </Layout>
     </>
   );
@@ -82,7 +82,7 @@ export const SideBar = styled('div', {
   backgroundColor: '$dark600',
   padding: '1.5rem',
   width: '280px',
-  height: 'calc(100vh - 57px)',
+  height: 'calc(100vh - 60px)',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
@@ -102,8 +102,7 @@ export const SideBarItem = styled(Link, {
   variants: {
     isActive: {
       true: {
-        background:
-          'linear-gradient(90deg, rgba(250,0,255,1) 0%, rgba(0,148,255,1) 100%)',
+        background: '$purple',
       },
     },
     disabled: {
@@ -142,4 +141,9 @@ export const Content = styled('main', {
   flex: '1',
   padding: '1.5rem',
   width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '2rem ',
+  height: 'calc(100vh - 60px)',
+  overflow: 'auto',
 });
