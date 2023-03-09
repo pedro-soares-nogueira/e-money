@@ -1,10 +1,13 @@
 import { dataformatter, priceFormatter } from '@/utils/formatter';
+import { MagnifyingGlass } from 'phosphor-react';
 import React, { useState } from 'react';
 import {
   TransactionsTable,
   PriceHighlight,
   TransactionsContainer,
   CategoryTag,
+  SearchFormContainer,
+  TrasactionsHeader,
 } from './styles';
 
 interface Transaction {
@@ -41,8 +44,8 @@ const transactions = [
   },
   {
     id: 3,
-    description: 'Trampo',
-    type: 'income',
+    description: 'Academia',
+    type: 'outcome',
     price: 150,
     category: {
       name: 'Gym',
@@ -55,7 +58,15 @@ const transactions = [
 const TransactionList = () => {
   return (
     <TransactionsContainer>
-      <h1>Last Transactions</h1>
+      <TrasactionsHeader>
+        <h1>Últimas transações</h1>
+        <SearchFormContainer>
+          <input type="text" placeholder="Buscque por transações" />
+          <button>
+            <MagnifyingGlass size={20} />
+          </button>
+        </SearchFormContainer>
+      </TrasactionsHeader>
       <TransactionsTable>
         <tbody>
           {transactions.map(transaction => {

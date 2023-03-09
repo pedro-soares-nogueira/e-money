@@ -66,3 +66,55 @@ export const CategoryTag = styled('span', {
     },
   },
 });
+
+export const TrasactionsHeader = styled('header', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+});
+
+export const SearchFormContainer = styled('header', {
+  display: 'flex',
+
+  input: {
+    flex: 1,
+    borderRadius: '6px 0px 0px 6px',
+    border: 0,
+    padding: '1rem',
+    backgroundColor: '$dark400',
+    outline: '0px !important',
+
+    '&::placeholder': {
+      color: '',
+    },
+
+    '&:focusVisible': {},
+  },
+
+  button: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.75rem',
+
+    border: 0,
+    padding: '1rem',
+    background: '$dark400',
+    opacity: '.8',
+    color: '',
+    fontWeight: 'bold',
+    borderRadius: '0px 6px 6px 0px',
+    cursor: 'pointer',
+
+    '&:disabled': {
+      opacity: '0.6',
+      cursor: 'not-allowed',
+    },
+
+    '&:not(:disabled):hover': {
+      background: '',
+      borderColor: '',
+      color: '',
+      transition: 'backgroundColor $pink',
+    },
+  },
+});
