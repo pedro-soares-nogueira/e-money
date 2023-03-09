@@ -32,12 +32,29 @@ export const TransactionsTable = styled('table', {
 });
 
 export const PriceHighlight = styled('span', {
-  color: 'green',
+  color: '$greenLight',
 
   variants: {
     type: {
       outcome: {
-        color: 'red',
+        color: '$redLight',
+      },
+    },
+  },
+});
+
+export const CategoryTag = styled('span', {
+  padding: '0.5rem 1rem',
+  backgroundColor: '$redLight',
+  borderRadius: '4px',
+  textTransform: 'uppercase',
+  fontSize: '14px',
+  fontWeight: '700',
+
+  variants: {
+    color: {
+      blue: {
+        backgroundColor: '$blue300',
       },
     },
   },

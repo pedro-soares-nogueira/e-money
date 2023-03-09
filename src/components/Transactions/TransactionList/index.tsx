@@ -4,6 +4,7 @@ import {
   TransactionsTable,
   PriceHighlight,
   TransactionsContainer,
+  CategoryTag,
 } from './styles';
 
 interface Transaction {
@@ -21,7 +22,10 @@ const transactions = [
     description: 'Mercado',
     type: 'outcome',
     price: 5520,
-    category: 'food',
+    category: {
+      name: 'food',
+      color: 'red',
+    },
     createdAt: '2023-03-09T18:12:29.584Z',
   },
   {
@@ -29,7 +33,10 @@ const transactions = [
     description: 'Trampo',
     type: 'income',
     price: 267,
-    category: 'freelancer',
+    category: {
+      name: 'freelancer',
+      color: 'blue',
+    },
     createdAt: '2023-03-09T18:12:29.584Z',
   },
   {
@@ -37,76 +44,17 @@ const transactions = [
     description: 'Trampo',
     type: 'income',
     price: 267,
-    category: 'freelancer',
-    createdAt: '2023-03-09T18:12:29.584Z',
-  },
-  {
-    id: 4,
-    description: 'Mercado',
-    type: 'outcome',
-    price: 5520,
-    category: 'food',
-    createdAt: '2023-03-09T18:12:29.584Z',
-  },
-  {
-    id: 5,
-    description: 'Mercado',
-    type: 'outcome',
-    price: 5520,
-    category: 'food',
-    createdAt: '2023-03-09T18:12:29.584Z',
-  },
-  {
-    id: 6,
-    description: 'Trampo',
-    type: 'income',
-    price: 267,
-    category: 'freelancer',
-    createdAt: '2023-03-09T18:12:29.584Z',
-  },
-  {
-    id: 7,
-    description: 'Trampo',
-    type: 'income',
-    price: 267,
-    category: 'freelancer',
-    createdAt: '2023-03-09T18:12:29.584Z',
-  },
-  {
-    id: 8,
-    description: 'Mercado',
-    type: 'outcome',
-    price: 5520,
-    category: 'food',
+    category: {
+      name: 'freelancer',
+      color: 'blue',
+    },
     createdAt: '2023-03-09T18:12:29.584Z',
   },
 ];
 
 const TransactionList = () => {
   return (
-    <TransactionsContainer
-      css={{
-        /* width */
-        '::-webkit-scrollbar': {
-          width: '10px',
-        },
-
-        /* Track */
-        '::-webkit-scrollbar-track': {
-          background: '#f1f1f1',
-        },
-
-        /* Handle */
-        '::-webkit-scrollbar-thumb': {
-          background: '#888',
-        },
-
-        /* Handle on hover */
-        '::-webkit-scrollbar-thumb:hover': {
-          background: '#555',
-        },
-      }}
-    >
+    <TransactionsContainer>
       <h1>Last Transactions</h1>
       <TransactionsTable>
         <tbody>
@@ -115,12 +63,16 @@ const TransactionList = () => {
               <tr key={transaction.id}>
                 <td width="50%">{transaction.description}</td>
                 <td>
-                  <PriceHighlight type={`${transaction.type}`}>
+                  <PriceHighlight type={transaction.type}>
                     {transaction.type === 'outcome' && '- '}
                     {priceFormatter.format(transaction.price)}
                   </PriceHighlight>
                 </td>
-                <td>{transaction.category}</td>
+                <td>
+                  <CategoryTag color={transaction.category.color}>
+                    {transaction.category.name}
+                  </CategoryTag>
+                </td>
                 <td>{dataformatter.format(new Date(transaction.createdAt))}</td>
               </tr>
             );

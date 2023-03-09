@@ -30,7 +30,7 @@ export const SummaryCard = styled('section', {
   variants: {
     color: {
       green: {
-        color: 'green',
+        color: '$green',
       },
     },
   },

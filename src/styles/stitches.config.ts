@@ -16,10 +16,6 @@ export const {
       blue600: '#4E9FFF',
       blue300: '#A1CDFF',
 
-      green: '#00C67E',
-      greenText: '#00db00',
-      red: '#E75555',
-
       dark900: '#232323',
       dark600: '#373737',
       dark400: '#4E4E4E',
@@ -28,6 +24,11 @@ export const {
       pink: '#FC5FFF',
       purple: '#A55FFF',
       blue: '#5FBCFF',
+
+      red: '#FF0000',
+      redLight: '#ff6c6c',
+      green: '#04D100',
+      greenLight: '#04c300',
     },
 
     fontSizes: {
