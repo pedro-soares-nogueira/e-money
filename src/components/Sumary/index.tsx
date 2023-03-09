@@ -8,7 +8,7 @@ const Summary = () => {
       <SummaryCard>
         <header>
           <span>Entradas</span>
-          <ArrowCircleUp size={32} color="#04D100" />
+          <ArrowCircleUp size={32} color="#04c300" />
         </header>
         <strong>R$22222,222</strong>
 
@@ -18,7 +18,7 @@ const Summary = () => {
       <SummaryCard>
         <header>
           <span>Saídas</span>
-          <ArrowCircleDown size={32} color="#FF0000" />
+          <ArrowCircleDown size={32} color="#ff6c6c" />
         </header>
         <strong>R$22222,222</strong>
 

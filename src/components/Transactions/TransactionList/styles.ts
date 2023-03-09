@@ -1,4 +1,5 @@
 import { styled } from '@/styles/stitches.config';
+import type * as Stitches from '@stitches/react';
 
 export const TransactionsContainer = styled('div', {
   display: 'flex',
@@ -36,6 +37,9 @@ export const PriceHighlight = styled('span', {
 
   variants: {
     type: {
+      income: {
+        color: '$greenLight',
+      },
       outcome: {
         color: '$redLight',
       },
@@ -45,7 +49,7 @@ export const PriceHighlight = styled('span', {
 
 export const CategoryTag = styled('span', {
   padding: '0.5rem 1rem',
-  backgroundColor: '$redLight',
+  backgroundColor: '$purple',
   borderRadius: '4px',
   textTransform: 'uppercase',
   fontSize: '14px',
@@ -53,8 +57,11 @@ export const CategoryTag = styled('span', {
 
   variants: {
     color: {
+      pink: {
+        backgroundColor: '$pink',
+      },
       blue: {
-        backgroundColor: '$blue300',
+        backgroundColor: '$blue800',
       },
     },
   },

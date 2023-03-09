@@ -35,7 +35,7 @@ const transactions = [
     price: 267,
     category: {
       name: 'freelancer',
-      color: 'blue',
+      color: 'pink',
     },
     createdAt: '2023-03-09T18:12:29.584Z',
   },
@@ -43,9 +43,9 @@ const transactions = [
     id: 3,
     description: 'Trampo',
     type: 'income',
-    price: 267,
+    price: 150,
     category: {
-      name: 'freelancer',
+      name: 'Gym',
       color: 'blue',
     },
     createdAt: '2023-03-09T18:12:29.584Z',
