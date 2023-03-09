@@ -143,7 +143,6 @@ export const Content = styled('main', {
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
-  gap: '2rem ',
   height: 'calc(100vh - 60px)',
   overflow: 'auto',
 });

@@ -15,10 +15,35 @@ export default function Home() {
         <link rel="icon" href="/logo.png" />
       </Head>
       <>
-        <Summary />
-
-        <TransactionList />
+        <MainContent>
+          <TransactionsContent>
+            <Summary />
+            <TransactionList />
+          </TransactionsContent>
+          <ChartsContent>CHARTS</ChartsContent>
+        </MainContent>
       </>
     </>
   );
 }
+
+export const MainContent = styled('div', {
+  display: 'flex',
+  width: '100%',
+  gap: '2rem ',
+});
+
+export const TransactionsContent = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
+  gap: '2rem ',
+});
+
+export const ChartsContent = styled('div', {
+  backgroundColor: '$dark600',
+  padding: '1.5rem',
+  width: '350px',
+  borderRadius: '6px',
+  height: 'calc(100vh - 60px)',
+});

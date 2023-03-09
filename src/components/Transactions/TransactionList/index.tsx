@@ -75,7 +75,6 @@ const TransactionList = () => {
                 <td width="50%">{transaction.description}</td>
                 <td>
                   <PriceHighlight type={transaction.type}>
-                    {transaction.type === 'outcome' && '- '}
                     {priceFormatter.format(transaction.price)}
                   </PriceHighlight>
                 </td>
