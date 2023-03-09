@@ -25,7 +25,7 @@ const DefaultLayout = ({ children }: DefaultLayout) => {
       </NavBar>
       <Layout>
         <SideBar>
-          <SideBarContent>
+          <div>
             <SideBarItem href={'/'} isActive={router.pathname === '/'}>
               <House size={28} />
               <span>Dashboard</span>
@@ -47,7 +47,7 @@ const DefaultLayout = ({ children }: DefaultLayout) => {
               <UserCircle size={28} />
               <span>Profile</span>
             </SideBarItem>
-          </SideBarContent>
+          </div>
           <Button>
             Upgrade PRO
             <SketchLogo size={32} />
@@ -120,8 +120,6 @@ export const SideBarItem = styled(Link, {
   },
 });
 
-export const SideBarContent = styled('div', {});
-
 export const Button = styled('button', {
   display: 'flex',
   alignItems: 'center',
@@ -141,5 +139,7 @@ export const Button = styled('button', {
 });
 
 export const Content = styled('main', {
+  flex: '1',
   padding: '1.5rem',
+  width: '100%',
 });
