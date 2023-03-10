@@ -20,7 +20,7 @@ export default function Home() {
             <Summary />
             <TransactionList />
           </TransactionsContent>
-          <ChartsContent>CHARTS</ChartsContent>
+          {/* <ChartsContent>CHARTS</ChartsContent> */}
         </MainContent>
       </>
     </>

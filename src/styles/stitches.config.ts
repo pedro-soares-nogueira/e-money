@@ -38,11 +38,17 @@ export const {
       '2xl': '2rem',
     },
 
+    // media: {
+    //   xs: '(min-width: 520px)',
+    //   sm: '(min-width: 640px)',
+    //   md: '(min-width: 768px)',
+    //   lg: '(min-width: 1024px)',
+    // },
+
     media: {
-      xs: '(min-width: 520px)',
-      sm: '(min-width: 640px)',
-      md: '(min-width: 768px)',
-      lg: '(min-width: 1024px)',
+      bp1: '@media (min-width: 640px)',
+      bp2: '@media (min-width: 768px)',
+      bp3: '@media (min-width: 1024px)',
     },
   },
 });
