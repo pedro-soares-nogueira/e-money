@@ -4,10 +4,44 @@ import { styled } from '@/styles/stitches.config';
 import { ArrowCircleUp, ArrowCircleDown, CurrencyDollar } from 'phosphor-react';
 import Summary from '@/components/Sumary';
 import TransactionList from '@/components/Transactions/TransactionList';
+import { GetServerSideProps, GetStaticProps } from 'next';
+import { prisma } from '@/lib/prisma';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
+interface Transaction {
+  transactions: {
+    id: string;
+    title: string;
+    amount: number;
+    createdAt: string;
+    type: string;
+    category: {
+      id: string;
+      name: string;
+      color: string;
+    };
+  }[];
+}
+
+export const getServerSideProps: GetServerSideProps = async context => {
+  const transactionsArray = await prisma.transaction.findMany({
+    include: { Category: true },
+    orderBy: {
+      createdAt: 'desc',
+    },
+  });
+
+  const transactions = JSON.parse(JSON.stringify(transactionsArray));
+
+  return {
+    props: { transactions },
+  };
+};
+
+export default function Home({ transactions }: Transaction) {
+  console.log(transactions);
+
   return (
     <>
       <Head>
