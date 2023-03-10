@@ -1,6 +1,10 @@
+import { api } from '@/lib/axios';
+import { prisma } from '@/lib/prisma';
+import { ITransaction } from '@/types';
 import { dataformatter, priceFormatter } from '@/utils/formatter';
+import { GetServerSideProps } from 'next';
 import { MagnifyingGlass } from 'phosphor-react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   TransactionsTable,
   PriceHighlight,
@@ -11,51 +15,23 @@ import {
 } from './styles';
 
 interface Transaction {
-  id: number;
-  description: string;
-  type: 'income' | 'outcome';
-  price: number;
-  category: string;
-  createdAt: string;
+  transactions: {
+    id: string;
+    title: string;
+    amount: number;
+    createdAt: string;
+    type: string;
+    category: {
+      id: string;
+      name: string;
+      color: string;
+    };
+  }[];
 }
 
-const transactions = [
-  {
-    id: 1,
-    description: 'Mercado',
-    type: 'outcome',
-    price: 5520,
-    category: {
-      name: 'food',
-      color: 'red',
-    },
-    createdAt: '2023-03-09T18:12:29.584Z',
-  },
-  {
-    id: 2,
-    description: 'Trampo',
-    type: 'income',
-    price: 267,
-    category: {
-      name: 'freelancer',
-      color: 'pink',
-    },
-    createdAt: '2023-03-09T18:12:29.584Z',
-  },
-  {
-    id: 3,
-    description: 'Academia',
-    type: 'outcome',
-    price: 150,
-    category: {
-      name: 'Gym',
-      color: 'blue',
-    },
-    createdAt: '2023-03-09T18:12:29.584Z',
-  },
-];
+const TransactionList = ({ transactions }: Transaction) => {
+  console.log(transactions);
 
-const TransactionList = () => {
   return (
     <TransactionsContainer>
       <TrasactionsHeader>
@@ -70,18 +46,24 @@ const TransactionList = () => {
       <TransactionsTable>
         <tbody>
           {transactions.map(transaction => {
+            console.log(transaction['category']);
+
             return (
               <tr key={transaction.id}>
-                <td width="50%">{transaction.description}</td>
+                <td width="50%">{transaction.title}</td>
                 <td>
                   <PriceHighlight type={transaction.type}>
-                    {priceFormatter.format(transaction.price)}
+                    {priceFormatter.format(transaction.amount)}
                   </PriceHighlight>
                 </td>
                 <td>
-                  <CategoryTag color={transaction.category.color}>
-                    {transaction.category.name}
-                  </CategoryTag>
+                  {transaction.category ? (
+                    <CategoryTag color={transaction.category.color}>
+                      {transaction.category.name}
+                    </CategoryTag>
+                  ) : (
+                    <CategoryTag>carregando</CategoryTag>
+                  )}
                 </td>
                 <td>{dataformatter.format(new Date(transaction.createdAt))}</td>
               </tr>

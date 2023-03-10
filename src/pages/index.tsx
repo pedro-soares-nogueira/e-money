@@ -1,11 +1,13 @@
 import Head from 'next/head';
 import { Inter } from 'next/font/google';
 import { styled } from '@/styles/stitches.config';
-import { ArrowCircleUp, ArrowCircleDown, CurrencyDollar } from 'phosphor-react';
 import Summary from '@/components/Sumary';
 import TransactionList from '@/components/Transactions/TransactionList';
 import { GetServerSideProps, GetStaticProps } from 'next';
 import { prisma } from '@/lib/prisma';
+import { useEffect, useState } from 'react';
+import { api } from '@/lib/axios';
+import { ITransaction } from '@/types';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -40,8 +42,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
 };
 
 export default function Home({ transactions }: Transaction) {
-  console.log(transactions);
-
   return (
     <>
       <Head>
@@ -52,7 +52,7 @@ export default function Home({ transactions }: Transaction) {
         <MainContent>
           <TransactionsContent>
             <Summary />
-            <TransactionList />
+            <TransactionList transactions={transactions} />
           </TransactionsContent>
           {/* <ChartsContent>CHARTS</ChartsContent> */}
         </MainContent>
