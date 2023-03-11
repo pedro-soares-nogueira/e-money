@@ -26,7 +26,7 @@ const DefaultLayout = ({ children }: DefaultLayout) => {
       <Layout>
         <SideBar>
           <div>
-            <SideBarItem href={'/'} isActive={router.pathname === '/'}>
+            <SideBarItem href={'/dashboard'} isActive={router.pathname === '/'}>
               <House size={28} />
               <span>Dashboard</span>
             </SideBarItem>
