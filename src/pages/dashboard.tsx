@@ -5,6 +5,8 @@ import Summary from '@/components/Sumary';
 import TransactionList from '@/components/Transactions/TransactionList';
 import { GetServerSideProps, GetStaticProps } from 'next';
 import { prisma } from '@/lib/prisma';
+import { ReactElement } from 'react';
+import DefaultLayout from '@/components/DefaultLayout';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -78,3 +80,7 @@ export const ChartsContent = styled('div', {
   borderRadius: '6px',
   height: 'calc(100vh - 60px)',
 });
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return <DefaultLayout>{page}</DefaultLayout>;
+};

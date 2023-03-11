@@ -1,5 +1,6 @@
+import DefaultLayout from '@/components/DefaultLayout';
 import Head from 'next/head';
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 const settings = () => {
   return (
@@ -11,6 +12,10 @@ const settings = () => {
       <>Content - Settings</>
     </>
   );
+};
+
+settings.getLayout = function getLayout(page: ReactElement) {
+  return <DefaultLayout>{page}</DefaultLayout>;
 };
 
 export default settings;
