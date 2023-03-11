@@ -5,9 +5,6 @@ import Summary from '@/components/Sumary';
 import TransactionList from '@/components/Transactions/TransactionList';
 import { GetServerSideProps, GetStaticProps } from 'next';
 import { prisma } from '@/lib/prisma';
-import { useEffect, useState } from 'react';
-import { api } from '@/lib/axios';
-import { ITransaction } from '@/types';
 
 const inter = Inter({ subsets: ['latin'] });
 

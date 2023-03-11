@@ -5,6 +5,7 @@ import {
   Gear,
   House,
   List,
+  SignOut,
   SketchLogo,
   UserCircle,
 } from 'phosphor-react';
@@ -21,13 +22,19 @@ const DefaultLayout = ({ children }: DefaultLayout) => {
     <>
       <NavBar>
         <List size={28} weight="fill" />
-        <Bell size={28} weight="fill" />
+        <div>
+          <Bell size={28} weight="fill" />
+          <SignOut size={28} weight="fill" />
+        </div>
       </NavBar>
       <Layout>
         <SideBar>
           <div>
-            <SideBarItem href={'/dashboard'} isActive={router.pathname === '/'}>
-              <House size={28} />
+            <SideBarItem
+              href={'/dashboard'}
+              isActive={router.pathname === '/dashboard'}
+            >
+              <House size={22} />
               <span>Dashboard</span>
             </SideBarItem>
 
@@ -35,7 +42,7 @@ const DefaultLayout = ({ children }: DefaultLayout) => {
               href={'/settings'}
               isActive={router.pathname === '/settings'}
             >
-              <Gear size={28} />
+              <Gear size={22} />
               <span>Settings</span>
             </SideBarItem>
 
@@ -44,7 +51,7 @@ const DefaultLayout = ({ children }: DefaultLayout) => {
               disabled
               isActive={router.pathname === '/Profile'}
             >
-              <UserCircle size={28} />
+              <UserCircle size={22} />
               <span>Profile</span>
             </SideBarItem>
           </div>
@@ -69,6 +76,13 @@ export const NavBar = styled('nav', {
   width: '100%',
   backgroundColor: '$dark400',
   padding: '1rem 1.5rem',
+
+  div: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '1rem',
+  },
 });
 
 export const Layout = styled('div', {
@@ -94,7 +108,7 @@ export const SideBarItem = styled(Link, {
   alignItems: 'start',
   justifyContent: 'start',
   gap: '1.5rem',
-  padding: '.8rem',
+  padding: '.6rem',
   borderRadius: '6px',
   textDecoration: 'none',
   color: 'white',
@@ -115,7 +129,7 @@ export const SideBarItem = styled(Link, {
 
   span: {
     fontWeight: '500',
-    fontSize: '1.2rem',
+    fontSize: '1rem',
   },
 });
 
